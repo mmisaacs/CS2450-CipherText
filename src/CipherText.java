@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CipherText implements ActionListener {
+    public String text;
+    public JTextField input, output;
     CipherText(){
         //declare frame and exit when closed
         JFrame jfrm = new JFrame ("Simple Cipher Coder");
@@ -16,8 +18,9 @@ public class CipherText implements ActionListener {
         JLabel cipher = new JLabel("Cipher Text:");
 
         //create text fields
-        JTextField input = new JTextField(30);
-        JTextField output = new JTextField(30);
+        input = new JTextField(30);
+        output = new JTextField(30);
+        output.setEditable(false);
 
         //create buttons
         JButton enc = new JButton("Encode");
@@ -25,8 +28,15 @@ public class CipherText implements ActionListener {
         JButton reset = new JButton("Reset");
 
         //action listeners
+        input.addActionListener(this);
+        enc.addActionListener(this);
+        dec.addActionListener(this);
+        reset.addActionListener(this);
 
-        //add labels to content pane
+        //declare text input
+        text = input.getText();
+
+        //add labels and buttons to content pane
         jfrm.getContentPane().add(plain, Component.CENTER_ALIGNMENT);
         jfrm.getContentPane().add(input);
         jfrm.getContentPane().add(cipher, Component.CENTER_ALIGNMENT);
@@ -39,9 +49,20 @@ public class CipherText implements ActionListener {
         jfrm.setVisible(true);
     }
 
+    public String cipher (String input){
+
+        return "";
+    }
+
     @Override
     public void actionPerformed(ActionEvent ae) {
-
+        /*if(ae.getActionCommand().equals("Encode"))
+            //cipher(text);
+        else */
+        if(ae.getActionCommand().equals("Reset")) {
+            input.setText("");
+            output.setText("");
+        }
     }
 
     public static void main(String[] args) {

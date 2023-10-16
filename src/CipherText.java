@@ -10,6 +10,7 @@ public class CipherText implements ActionListener {
     //declare text fields to be accessible outside the method
     public JTextField input, output;
 
+    //create a string builder to create a (de)ciphered text
     StringBuilder str = new StringBuilder();
     CipherText(){
         //declare frame and exit when closed
